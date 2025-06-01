@@ -1,0 +1,38 @@
+services:
+  yolo_app:
+    build:
+      context: .
+      dockerfile: ./Build_YOLO_Image/Dockerfile 
+    image: yolov12_project_compose 
+
+    working_dir: /diploma_code
+    
+    volumes:
+      # - ./data/ACDC_YOLO_Dataset:/datasets/acdc_final:ro # :ro - только для чтения, если не меняем его изнутри
+      # - Z:/Transfer/Уник/Диплом/Code/data/ACDC_YOLO_Dataset:/datasets/acdc_final:ro
+
+      # - ./run_experiments.py:/scripts/run_experiments.p
+      - C:/Users/orlov/OneDrive/Рабочий стол/Диплом/Code/data/ACDC_YOLO_PreservedSplit_12000imgs:/datasets/acdc_final
+      # - C:/Users/orlov/OneDrive/Рабочий стол/Диплом/Code/data/ACDC_YOLO_Dataset:/datasets/acdc_final
+
+      # - ./runs:/diploma_code/runs 
+      - C:/Users/orlov/OneDrive/Рабочий стол/Диплом/Code/:/diploma_code/ 
+      - C:/Users/orlov/OneDrive/Рабочий стол/Диплом/Code/runs:/diploma_code/runs 
+      
+      # - C:/Users/orlov/OneDrive/Рабочий стол/Диплом/Code/models:/models_cache_on_host
+      # - C:/Users/orlov/OneDrive/Рабочий стол/Диплом/Code/Weather_Distortions_Recognition:/diploma_code/app_code 
+
+    shm_size: '4g' 
+
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all 
+              capabilities: [gpu]
+              
+
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t

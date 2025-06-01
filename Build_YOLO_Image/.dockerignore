@@ -1,0 +1,15 @@
+Weather_Distortions_Recognition/.venv
+
+Weather_Distortions_Recognition/.poetry/
+Weather_Distortions_Recognition/.pytest_cache/
+Weather_Distortions_Recognition/.mypy_cache/
+Weather_Distortions_Recognition/.ruff_cache/
+Weather_Distortions_Recognition/__pycache__/
+Weather_Distortions_Recognition/src/__pycache__/
+
+.git/
+.vscode/
+*.pyc
+*.pyo
+*~
+poetry.lock

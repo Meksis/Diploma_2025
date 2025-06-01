@@ -1,0 +1,27 @@
+[project]
+name = "development"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Meksis",email = "orlov.work.gen@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11, <3.13"
+dependencies = [
+    "ultralytics (>=8.3.141,<9.0.0)",
+    "opencv-python (>=4.11.0.86,<5.0.0.0)",
+    "pillow (>=11.2.1,<12.0.0)",
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "matplotlib (>=3.10.3,<4.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "albumentations (>=2.0.7,<3.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "development", from = "src"}]
+
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
